@@ -21,14 +21,18 @@ $(document).ready(function () {
                     {
                         console.log(response);
                         $('.user_name').text(response.data.name);
-                        $('.army_no').text(response.data.army_no);
-                        $('.rank').text(response.data.rank_id);
-                        $('.battery').text(response.data.trade_id);
+                        $('.army_no').text(response.data.army_number);
+                        $('.rank').text(response.data.rank);
+                        $('.battery').text(response.data.battery);
                         $('.proceed_div').css("display","block");
 
                     }
                     else{
                         $('.proceed_div').css("display","none");
+                        $('.user_name').text('');
+                        $('.army_no').text('');
+                        $('.rank').text('');
+                        $('.battery').text('');
                     }
                 }
               });
@@ -83,14 +87,9 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
+     $('.yearpicker').yearpicker(
+        {startYear:2020}
+     );
 
  
 });

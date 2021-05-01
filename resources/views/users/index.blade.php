@@ -21,9 +21,9 @@
                 <tr style="backgroundColor:#fff">
                     <td>{{$user->name}}</td>
                     <td>{{$user->clo_card_no}}</td>
-                    <td>{{$user->army_no}}</td>
-                    <td>{{($user->rank_id)}}</td>
-                    <td>{{($user->battery_id)}}</td>
+                    <td>{{$user->army_number}}</td>
+                    <td>{{($user->rank)}}</td>
+                    <td>{{($user->battery)}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>  
                     <td class="justify-content-center"> 

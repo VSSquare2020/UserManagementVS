@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="custom-control">
+    <div class="create_btn">
         <a href="/issue/create/{{@$user->id}}">Create New</a> 
     </div>
     <table id="user_view_table" class="table text-center">

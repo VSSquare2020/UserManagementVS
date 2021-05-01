@@ -22,8 +22,11 @@
                 <li  style="float: left;"  class="nav-item">
                     <a style="font-size: 20px;display: block; color: white; text-align: center;padding: 14px 16px;text-decoration: none;" class="nav-link" href="/issue/view">Issued Item List</a>
                 </li>
-                <li style="float: left;  class="nav-item">
-                    <a style="font-size: 20px;display: block; color: white; text-align: center;padding: 14px 16px;text-decoration: none;" class="nav-link" href="/users/create">New User</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/issue/due_date">DUE DATES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/create">New User</a>
                 </li>
             </ul>
             <!-- Right Side Of Navbar -->

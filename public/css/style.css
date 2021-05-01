@@ -11,3 +11,40 @@
 .user-info p {
     font-size: 20px;
 }
+
+.RETURNED{
+    background-color:green;
+    color: beige;
+}
+.create_btn,.proceed_btn,.fetch_user{
+    border: 1px solid;
+    width: fit-content;
+    padding: 5px;
+    margin: 5px;
+    background-color: cyan;
+    border-radius: 5px;
+}
+.create_btn a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 100;
+}
+.user-info{
+    margin: auto;
+    width: 60%;
+}
+.user_details{
+    display: flex;
+}
+.user_details p{
+    float: right;
+    margin: auto;
+    width: 30%;
+    font-style:bold;
+}
+.user-field {
+    margin: auto;
+}
+.user-field div{
+    display: -webkit-box;
+}

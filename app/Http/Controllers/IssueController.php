@@ -61,7 +61,7 @@ class IssueController extends Controller
         {
             if (Auth::user()->admin) {
                 $user = User::where('clo_card_no', $id)->first();
-                $products = Purchase::where('user_id', $user->id)->get();
+                $products = Purchase::where('user_id', $user->id)->with('product')->get();
 
                 return view('issue.issue_details', compact('products', 'user'));
             }
@@ -97,6 +97,7 @@ class IssueController extends Controller
             $products = $request->product_id;
             $quantity = $request->quantity;
             $count = count($products);
+            $userData = User::where('id',$request->user_id)->first();
 
             foreach($products as $key=>$val)
             {
@@ -106,6 +107,7 @@ class IssueController extends Controller
                 if ($productInfo->quantity >= $request->quantity[$key]) {
                     $saveToDb = Purchase::create([
                     'user_id' => $request->user_id,
+                    'battery' => $user->battery,
                     'product_id' => $val,
                     'quantity' => $request->quantity[$key],
                     'status' => 'ISSUED',
@@ -169,5 +171,28 @@ class IssueController extends Controller
                 'return_on' => Carbon::now()
             ]);
         }
+    }
+
+    public function DueDateView()
+    {
+        return view('issue.due_date');
+    }
+
+    public function fetchIssueData(Request $request){
+        $validatedData = $request->validate([
+            'month' => 'required',
+            'year' => 'required',
+            'battery' => 'sometimes',
+        ]);
+
+        if($request->has('battery') && $request->battery != "")
+        {
+            $products = Purchase::whereMonth('due_date',$request->month)->whereYear('due_date',$request->year)->where('status','ISSUED')->with(['product','user'])->get();
+        }
+        else{
+            $products = Purchase::whereMonth('due_date',$request->month)->whereYear('due_date',$request->year)->where('status','ISSUED')->with(['product','user'])->get();
+        }
+
+        return view('issue.due_date_data',compact('products'));
     }
 }

@@ -11,9 +11,9 @@
             </div>
 
             <p><strong>CLO CARD NO: </strong> {{$user->clo_card_no}}</p> 
-            <p><strong>ARMY NO: </strong> {{$user->army_no}}</p> 
-            <p><strong>RANK: </strong> {{$user->rank_id}}</p> 
-            <p><strong>BATTERY: </strong> {{$user->trade_id}}</p> 
+            <p><strong>ARMY NO: </strong> {{$user->army_number}}</p> 
+            <p><strong>RANK: </strong> {{$user->rank}}</p> 
+            <p><strong>BATTERY: </strong> {{$user->battery}}</p> 
         </div>
     </div>
 </div>

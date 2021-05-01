@@ -47,6 +47,9 @@ Route::get('/issue_details/{id}','IssueController@issue_details')->middleware(['
 Route::get('/issue/view','IssueController@view')->middleware(['web','auth']);
 Route::post('/issue/return/{id}','IssueController@return')->middleware(['web','auth']);
 
+Route::get('/issue/due_date','IssueController@DueDateView')->middleware(['web','auth']);
+Route::post('/issue/due_date','IssueController@fetchIssueData')->middleware(['web','auth']);
+
 Route::get('/profile', 'ProfileController@show')->middleware(['web','auth']);
 Route::get('/profile/edit', 'ProfileController@edit')->middleware(['web','auth']);
 Route::put('/profile', 'ProfileController@update')->middleware(['web','auth']);

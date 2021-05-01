@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="army_no">Army No.</label>
-                        <input type="number" name="army_no" class="form-control @error('army_no') is-invalid @enderror" id="army_no">
+                        <input type="text" name="army_no" class="form-control @error('army_no') is-invalid @enderror" id="army_no">
                         @error('army_no')
                             <div class="invalid-feedback">
                                     {{ $message }}
@@ -46,15 +46,15 @@
                     <div class="form-group">
                         <label for="permissionSelect">Rank</label>
                         <select class="form-control" name="rank" id="rank">
-                            <option value="1">Sub. Major</option>
-                            <option value="2">Sub</option>
-                            <option value="3">Nb Sub</option>
-                            <option value="4">RHM </option>
-                            <option value="5">BHM </option>
-                            <option value="6">HAV</option>
-                            <option value="7">LHAV</option>
-                            <option value="8">NK</option>
-                            <option value="9">RHM </option>
+                            <option value="Sub. Major">Sub. Major</option>
+                            <option value="Sub">Sub</option>
+                            <option value="Nb Sub">Nb Sub</option>
+                            <option value="RHM">RHM </option>
+                            <option value="BHM">BHM </option>
+                            <option value="HAV">HAV</option>
+                            <option value="LHAV">LHAV</option>
+                            <option value="NK">NK</option>
+                            <option value="RHM">RHM </option>
                         </select>
                     </div>
                     <div class="form-group">

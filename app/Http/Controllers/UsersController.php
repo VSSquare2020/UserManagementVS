@@ -67,10 +67,10 @@ class UsersController extends Controller
             $user = new User;
             $user->name = $request->name;
             $user->email = "useremail";
-            $user->army_no = $request->army_no;
+            $user->army_number = $request->army_no;
             $user->clo_card_no = $request->clo_no;
-            $user->rank_id = $request->rank; 
-            $user->battery_id = $request->battery;
+            $user->rank = $request->rank; 
+            $user->trade_id = $request->battery;
             $user->password = Hash::make('password'.$request->army_no);
             if($request->hasFile('image')) {
                 $user->image = $request->image->store('profile_pics', 'public');
@@ -118,8 +118,9 @@ class UsersController extends Controller
     {
         if(Auth::user()->admin) {
             $user = User::findOrFail($id);
-            $user_role = DB::table('roles')->where('user_id', '=', $id)->first();
-            return view('users.edit', compact('user', 'user_role'));
+
+          
+            return view('users.edit', compact('user'));
 
         }
         else {
@@ -137,32 +138,26 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         if(Auth::user()->admin) {
-
+            dd($request);
             $validatedData = $request->validate([
-                'name' => 'required:max:40',
-                'email' => 'required|max:190',
-                'password' => 'nullable|min:8|confirmed',
-                'role' => 'required|max:40',
+                'name' => 'required',
+                'army_no' => 'required',
+                'clo_no' => 'required',
+                'rank' => 'required',
+                'battery' => 'required',
             ]);
 
-            $user = User::find($id);
             $user->name = $request->name;
-            $user->email = $request->email;
-            $user->birth_date = $request->birth_date;
-            $user->gender = $request->gender; 
-            $user->country = $request->country;
-            if($user->password) {
-                $user->password = Hash::make($request->password);
-            }
+            $user->email = "useremail";
+            $user->army_number = $request->army_no;
+            $user->clo_card_no = $request->clo_no;
+            $user->rank = $request->rank; 
+            $user->battery = $request->battery;
+
             if($request->hasFile('image')) {
                 $user->image = $request->image->store('profile_pics', 'public');
             }
             $user->save();
-
-            $role = Role::where('user_id', '=', $id)->firstOrFail();
-            $role->role = $request->role;
-            $role->permission = $request->permission;
-            $role->save();
 
             return redirect('/admin-panel')->with('msg_success', 'User Updated Successfully');
         }

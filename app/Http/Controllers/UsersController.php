@@ -70,7 +70,7 @@ class UsersController extends Controller
             $user->army_no = $request->army_no;
             $user->clo_card_no = $request->clo_no;
             $user->rank_id = $request->rank; 
-            $user->trade_id = $request->battery;
+            $user->battery_id = $request->battery;
             $user->password = Hash::make('password'.$request->army_no);
             if($request->hasFile('image')) {
                 $user->image = $request->image->store('profile_pics', 'public');

@@ -17,7 +17,7 @@
     <body>
         
         <div class="container-fluid text-center heading-custom">
-            <h1 class="display-4">User Management System</h1>
+            <h1 class="display-4">VAJRA VASTRA</h1>
             <a class="btn btn-primary" href="{{ route('register') }}">User Registration</a>
             <a class="btn btn-secondary " href="{{ route('login') }}">User/Admin Login</a>
         </div>

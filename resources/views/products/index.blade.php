@@ -3,11 +3,17 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="custom-control">
-            <a href="/products/create">Create New</a> 
+        <div style="margin-bottom: 20px;" class="custom-control">
+        <button class="btn btn-primary btn-block">
+
+        <!-- <a style="background-color: #3490dc; border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;cursor: pointer;" href="/products/create">Create New</a>  -->
+        <a class="btn btn-primary btn-block" href="/products/create" >Create Product</a>
+        
+        </button>
+            
         </div>
     </div>
-    <div class="row">
+    <div style="display:block;" class="row">
         <table id="user_view_table" class="table text-center">
             <thead class="thead-dark">
                 <tr>

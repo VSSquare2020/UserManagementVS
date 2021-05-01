@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="custom-control">
+        <div class="create_btn">
             <a href="/products/create">Create New</a> 
         </div>
     </div>

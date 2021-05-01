@@ -23,6 +23,9 @@
                     <a class="nav-link" href="/issue/view">ISSUED Listing</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/issue/due_date">DUE DATES</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/users/create">New User</a>
                 </li>
             </ul>

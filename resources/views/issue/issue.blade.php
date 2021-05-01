@@ -13,19 +13,17 @@
                 <button class="fetch_user">Fetch User</button>
             </div>
         </div>
-        <div class="offset-md-2 col-md-8 mt-3 user-info">
+    </div>
+        <div class="user-info">
 
-            <p><strong>User Name: </strong> <p class="user_name"></p> </p> 
-            <p><strong>ARMY NO: </strong> <p class="army_no"></p> </p> 
-            <p><strong>RANK: </strong>  <p class="rank"></p></p> 
-            <p><strong>BATTERY: </strong> <p class="battery"></p></p> 
+            <div class="user_details"><p>User Name: </p> <p class="user_name"></p> </div> 
+            <div class="user_details"><p>ARMY NO: </p> <p class="army_no"></p> </div> 
+            <div class="user_details"><p>RANK: </p>  <p class="rank"></p></div> 
+            <div class="user_details"><p>BATTERY: </p> <p class="battery"></p></div> 
         </div>
         <div class="proceed_div" style="display:none">
             <Button class="proceed_btn">Proceed</Button>
         </div>
-    </div>
-
-    </div>
 </div>
 
 

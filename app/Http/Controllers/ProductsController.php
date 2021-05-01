@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Role;
-use Hash;
+use App\Product;
 use DB;
 
-class UsersController extends Controller
+class ProductsController extends Controller
 {
-    /**
+    
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -19,12 +19,11 @@ class UsersController extends Controller
     public function index()
     {
         if(Auth::user()->admin) {
-            $users = DB::table('users')
-                        ->where('admin', '=', 0)
+            $products = DB::table('products')
                         ->orderBy('created_at', 'DESC')
                         ->paginate(20);
 
-            return view('users.index', compact('users'));
+            return view('products.index', compact('products'));
         }
         else {
             return redirect('/home');
@@ -39,7 +38,7 @@ class UsersController extends Controller
     public function create()
     {
         if(Auth::user()->admin) {
-            return view('users.create');
+            return view('products.create');
         }
         else {
             return redirect('/home');
@@ -58,24 +57,18 @@ class UsersController extends Controller
 
             $validatedData = $request->validate([
                 'name' => 'required',
-                'army_no' => 'required|unique:users',
-                'clo_no' => 'required',
-                'rank' => 'required',
-                'battery' => 'required',
+                'product_life' => 'required|numeric',
+                'quantity' => 'required|numeric',
             ]);
             
-            $user = new User;
-            $user->name = $request->name;
-            $user->email = "useremail";
-            $user->army_no = $request->army_no;
-            $user->clo_card_no = $request->clo_no;
-            $user->rank_id = $request->rank; 
-            $user->trade_id = $request->battery;
-            $user->password = Hash::make('password'.$request->army_no);
+            $product = new Product;
+            $product->product_name = $request->name;
+            $product->product_life_month = $request->product_life;
+            $product->quantity = $request->quantity;
             if($request->hasFile('image')) {
-                $user->image = $request->image->store('profile_pics', 'public');
+                $product->image = $request->image->store('product_pics', 'public');
             }
-            $user->save();
+            $product->save();
 
             // $role = new Role;
             // $role->user_id = $user->id;
@@ -83,7 +76,7 @@ class UsersController extends Controller
             // $role->permission = $request->permission;
             // $role->save();
 
-            return redirect('/admin-panel')->with('msg_success', 'User Created Successfully');
+            return back()->with(['message'=>'Product added Successfully']);
             
         }
         else {
@@ -117,9 +110,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         if(Auth::user()->admin) {
-            $user = User::findOrFail($id);
-            $user_role = DB::table('roles')->where('user_id', '=', $id)->first();
-            return view('users.edit', compact('user', 'user_role'));
+            $product = Product::findOrFail($id);
+            return view('products.edit', compact('product'));
 
         }
         else {
@@ -137,34 +129,23 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         if(Auth::user()->admin) {
-
             $validatedData = $request->validate([
-                'name' => 'required:max:40',
-                'email' => 'required|max:190',
-                'password' => 'nullable|min:8|confirmed',
-                'role' => 'required|max:40',
+                'name' => 'required',
+                'product_life' => 'required|numeric',
+                'quantity' => 'required|numeric',
             ]);
 
-            $user = User::find($id);
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->birth_date = $request->birth_date;
-            $user->gender = $request->gender; 
-            $user->country = $request->country;
-            if($user->password) {
-                $user->password = Hash::make($request->password);
-            }
+            $product = Product::findOrFail($id);
+
+            $product->product_name = $request->name;
+            $product->product_life_month = $request->product_life;
+            $product->quantity = $request->quantity;
             if($request->hasFile('image')) {
-                $user->image = $request->image->store('profile_pics', 'public');
+                $product->image = $request->image->store('product_pics', 'public');
             }
-            $user->save();
+            $product->save();
 
-            $role = Role::where('user_id', '=', $id)->firstOrFail();
-            $role->role = $request->role;
-            $role->permission = $request->permission;
-            $role->save();
-
-            return redirect('/admin-panel')->with('msg_success', 'User Updated Successfully');
+            return back()->with(['message' => 'Product Updated Successfully']);
         }
         else {
             return redirect('/home');
@@ -180,14 +161,15 @@ class UsersController extends Controller
     public function destroy($id)
     {
         if(Auth::user()->admin) {
-            $user = User::find($id);
-            $role = Role::where('user_id', '=', $id)->firstOrFail();
-            $role->delete();
-            $user->delete();
-            return redirect('/admin-panel')->with('msg_success', 'User Deleted Successfully');
+            $product = Product::findOrFail($id);
+            $product->delete();
+            return back()->with(['message' => 'Product Deleted Successfully']);
+            //return redirect('/admin-panel')->with('msg_success', 'User Deleted Successfully');
         }
         else {
             return redirect('/home');
         }
     }
+
+    
 }

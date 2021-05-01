@@ -15,6 +15,12 @@ class CreatePurchaseTable extends Migration
     {
         Schema::create('purchase', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('product_id');
+            $table->unsignedInteger('quantity');
+            $table->dateTime('due_date')->nullable();
+            $table->dateTime('returned_on')->nullable();
+            $table->enum('status',['ISSUED','FAILED','RETURNED']);
             $table->timestamps();
         });
     }

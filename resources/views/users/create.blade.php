@@ -17,15 +17,24 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email">
-                        @error('email')
+                        <label for="army_no">Army No.</label>
+                        <input type="number" name="army_no" class="form-control @error('army_no') is-invalid @enderror" id="army_no">
+                        @error('army_no')
                             <div class="invalid-feedback">
                                     {{ $message }}
                             </div>
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="army_no">CLO CARD No.</label>
+                        <input type="number" name="clo_no" class="form-control @error('clo_no') is-invalid @enderror" id="clo_no">
+                        @error('clo_no')
+                            <div class="invalid-feedback">
+                                    {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <!-- <div class="form-group">
                         <label for="pass">Password</label>
                         <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="pass">
                         @error('password')
@@ -33,8 +42,31 @@
                                     {{ $message }}
                             </div>
                         @enderror
+                    </div> -->
+                    <div class="form-group">
+                        <label for="permissionSelect">Rank</label>
+                        <select class="form-control" name="rank" id="rank">
+                            <option value="1">Sub. Major</option>
+                            <option value="2">Sub</option>
+                            <option value="3">Nb Sub</option>
+                            <option value="4">RHM </option>
+                            <option value="5">BHM </option>
+                            <option value="6">HAV</option>
+                            <option value="7">LHAV</option>
+                            <option value="8">NK</option>
+                            <option value="9">RHM </option>
+                        </select>
                     </div>
                     <div class="form-group">
+                        <label for="permissionSelect">Battery</label>
+                        <select class="form-control" name="battery" id="battery">
+                            <option value="1">Sub. Major</option>
+                            <option value="2">Sub</option>
+                            <option value="3">Nb Sub</option>
+                            <option value="4">RHM </option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group">
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" id="male" name="gender" value="M" class="custom-control-input" />
                             <label class="custom-control-label" for="male">Male</label>
@@ -43,32 +75,15 @@
                             <input type="radio" id="female" name="gender" value="F" class="custom-control-input" />
                             <label class="custom-control-label" for="female">Female</label>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
-                        <label for="birth_date">Birth Date</label>
-                        <input type="date" name="birth_date" class="form-control" id="birth_date">
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <input type="text" name="country" class="form-control" id="country">
-                    </div>
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <input type="text" name="role" class="form-control @error('role') is-invalid @enderror" id="role">
-                        @error('role')
+                        <label for="address">Address</label>
+                        <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address">
+                        @error('address')
                             <div class="invalid-feedback">
                                     {{ $message }}
                             </div>
                         @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="permissionSelect">Permission</label>
-                        <select class="form-control" name="permission" id="permissionSelect">
-                            <option value="read">Read</option>
-                            <option value="write">Write</option>
-                            <option value="execute">Execute</option>
-                            <option value="delete">Delete</option>
-                        </select>
                     </div>
                     <div class="form-group">
                         <div class="custom-file">    

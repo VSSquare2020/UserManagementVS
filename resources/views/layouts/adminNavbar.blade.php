@@ -14,7 +14,13 @@
                     <a class="nav-link" href="/users">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/roles">Roles</a>
+                    <a class="nav-link" href="/products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/issue">ISSUE PRODUCT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/issue/view">ISSUED Listing</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/users/create">New User</a>

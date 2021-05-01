@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterUsersTable extends Migration
+class AddImageColumnToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class AlterUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('army_no');
-            $table->bigInteger('battery_id');
-            $table->bigInteger('clo_card_no');
-            $table->bigInteger('rank_id');
-            //
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('image')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class AlterUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
 }

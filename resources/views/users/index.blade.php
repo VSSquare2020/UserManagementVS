@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <table class="table text-center">
+        <table id="user_view_table" class="table text-center">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Birth Date</th>
-                <th scope="col">Country</th>
+                <th scope="col">CLO CARD NUMBER</th>
+                <th scope="col">ARMY NO</th>
+                <th scope="col">RANK</th>
+                <th scope="col">BATTER</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Updated At</th>
                 <th scope="col">Controls</th>
@@ -20,10 +20,10 @@
             @forelse ($users as $user)
                 <tr style="backgroundColor:#fff">
                     <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>{{$user->gender}}</td>
-                    <td>{{($user->birth_date)? $user->birth_date : 'empty'}}</td>
-                    <td>{{($user->country)? $user->country : 'empty'}}</td>
+                    <td>{{$user->clo_card_no}}</td>
+                    <td>{{$user->army_no}}</td>
+                    <td>{{($user->rank_id)}}</td>
+                    <td>{{($user->trade_id)}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>  
                     <td class="justify-content-center"> 
@@ -45,4 +45,5 @@
     </div>
         {{ $users->links() }}
     </div>
+
 @endsection

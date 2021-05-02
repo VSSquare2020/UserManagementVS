@@ -68,10 +68,10 @@
                     <div class="form-group">
                         <label for="permissionSelect">Battery</label>
                         <select class="form-control" name="battery" id="battery">
-                            <option value="P">P</option>
-                            <option value="Q">Q</option>
-                            <option value="R">R</option>
-                            <option value="HQ">HQ </option>
+                            <option value="PAPA">PAPA</option>
+                            <option value="QUEBEC">QUEBEC</option>
+                            <option value="ROMIEO">ROMEO</option>
+                            <option value="HEAD_QUATER">HEAD QUATER </option>
                         </select>
                     </div>
                     <!-- <div class="form-group">

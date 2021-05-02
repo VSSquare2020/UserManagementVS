@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="issue_form">
-            <div>Issue Product : <button class="add_more">ADD More</button> </div> 
+            <div>Issue Product : <button class="add_more btn btn-primary">ADD More</button> </div> 
             <form action="/issue/store" method="post">
                 @csrf
                 @if(session()->has('success'))
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="issue">
+                <input style="margin-top:20px" class="btn btn-primary" type="submit" value="Issue Items">
 
             </form>
         </div>

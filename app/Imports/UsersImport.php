@@ -25,8 +25,7 @@ class UsersImport implements ToCollection,WithHeadingRow, SkipsOnError
     {
        //dd($rows);
         foreach ($rows as $key=>$row) {
-            if($key>3)
-           { //dd(gettype($row['bty']));
+         //dd(gettype($row['bty']));
             if (!empty($row['name']) && $row['clo_card_no']) {
                 User::create([
                 'name' => $row['name'],
@@ -39,12 +38,11 @@ class UsersImport implements ToCollection,WithHeadingRow, SkipsOnError
 
             ]);
             }
-            }
         }
     }
 
     public function onError(Throwable $error)
     {
-        dd($error);
+       // dd($error);
     }
 }

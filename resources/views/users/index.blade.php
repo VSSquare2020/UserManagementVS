@@ -10,7 +10,7 @@
                 <th scope="col">CLO CARD NUMBER</th>
                 <th scope="col">ARMY NO</th>
                 <th scope="col">RANK</th>
-                <th scope="col">BATTER</th>
+                <th scope="col">BATTERY</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Updated At</th>
                 <th scope="col">Controls</th>

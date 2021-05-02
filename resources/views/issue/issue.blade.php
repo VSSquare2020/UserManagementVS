@@ -8,9 +8,9 @@
     <div class="row">
         <div class="user-field">
             <div class="form-group">
-                <label for="clo_number">CLO CARD NO</label>
+                <label style="margin-top:0.6em; margin-right:1em; " for="clo_number"><strong>CLO CARD NO </strong> </label>
                 <input placeholder="Enter CLO Card Number" type="number" name="clo_number" class="form-control" id="clo_number">
-                <button style="margin-top: 20px;" class="fetch_user btn btn-primary btn-block">Fetch User</button>
+                <button  class="fetch_user btn btn-primary btn-block">Fetch User</button>
             </div>
         </div>
     </div>

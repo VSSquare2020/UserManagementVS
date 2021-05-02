@@ -74,6 +74,22 @@
             </div>
         </div>
 
+        <div style="position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    height: 600x;
+    width: 600px;
+    margin-top:100px;
+    text-indent: -999em;
+    text-decoration: none;;" class="container-fluid text-center heading-custom">
+        <img style="position: absolute; top:0px; right:0px" src="/img/vajra.png" alt="logo">
+
+            <!-- <a class="btn btn-primary" href="{{ route('register') }}">User Registration</a> -->
+            
+            
+        </div>
+
         
 
 </div>

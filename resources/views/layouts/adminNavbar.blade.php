@@ -1,5 +1,6 @@
 <nav style="background-color: #333;" class="navbar navbar-expand-md navbar-light bg-black shadow-sm mb-5">
     <div  style="background-color: #333;" class="container">
+    
         <a  style="color: white;" class="navbar-brand" href="{{ url('/admin-panel') }}">
             Dashboard
         </a>
@@ -22,11 +23,11 @@
                 <li  style="float: left;"  class="nav-item">
                     <a style="font-size: 20px;display: block; color: white; text-align: center;padding: 14px 16px;text-decoration: none;" class="nav-link" href="/issue/view">Issued Item List</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/issue/due_date">DUE DATES</a>
+                <li style="float: left;"  class="nav-item">
+                    <a style="font-size: 20px;display: block; color: white; text-align: center;padding: 14px 16px;text-decoration: none;" class="nav-link" href="/issue/due_date">Due Items</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/create">New User</a>
+                <li style="float: left;"  class="nav-item">
+                    <a style="font-size: 20px;display: block; color: white; text-align: center;padding: 14px 16px;text-decoration: none;" class="nav-link" href="/users/create">New User</a>
                 </li>
             </ul>
             <!-- Right Side Of Navbar -->

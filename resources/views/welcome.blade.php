@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>User Management System</title>
+        <title>Vajra Vastra</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -17,9 +17,16 @@
     <body>
         
         <div class="container-fluid text-center heading-custom">
-            <h1 class="display-4">VAJRA VASTRA</h1>
-            <a class="btn btn-primary" href="{{ route('register') }}">User Registration</a>
-            <a class="btn btn-secondary " href="{{ route('login') }}">User/Admin Login</a>
+        <img src="/img/vajra.png" alt="logo" width="500" height="500">
+
+            <!-- <a class="btn btn-primary" href="{{ route('register') }}">User Registration</a> -->
+            
+            
+        </div>
+        <div class="container-fluid text-center heading-custom">
+
+        <a class="btn btn-primary " href="{{ route('login') }}">Click Here to Login</a>
+
         </div>
 
         {{-- js --}}

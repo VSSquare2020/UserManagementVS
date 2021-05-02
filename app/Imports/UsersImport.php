@@ -21,14 +21,21 @@ class UsersImport implements ToCollection,WithHeadingRow, SkipsOnError
     */
     public function collection(Collection $rows)
     {
-        dd($rows);
-        // foreach ($rows as $row) {
-        //     return new User([
-        //         'name'     => $row[0],
-        //         'email'    => $row[1],
-        //         'password' => Hash::make($row[2]),
-        // ]);
-        // }
+       // dd($rows);
+        foreach ($rows as $row) {
+            if ($row['name'] && $row['clo_card_no']) {
+                User::create([
+                'name' => $row['name'],
+                'email' => 'email',
+                'password' => $row['clo_card_no'],
+                'clo_card_no' => $row['clo_card_no'],
+                'army_number' => $row['army_no'],
+                'rank' => $row['rank'],
+                'battery' => $row['bty'],
+
+            ]);
+            }
+        }
     }
 
     public function onError(Throwable $error)

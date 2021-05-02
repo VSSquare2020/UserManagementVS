@@ -139,7 +139,6 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         if(Auth::user()->admin) {
-            dd($request);
             $validatedData = $request->validate([
                 'name' => 'required',
                 'army_no' => 'required',
@@ -148,19 +147,23 @@ class UsersController extends Controller
                 'battery' => 'required',
             ]);
 
+            $user = User::findOrFail($id);
             $user->name = $request->name;
             $user->email = "useremail";
             $user->army_number = $request->army_no;
             $user->clo_card_no = $request->clo_no;
             $user->rank = $request->rank; 
+            $user->password = Hash::make('password'.$request->army_no);
+
             $user->battery = $request->battery;
+            //dd($user);
 
             if($request->hasFile('image')) {
                 $user->image = $request->image->store('profile_pics', 'public');
             }
             $user->save();
 
-            return redirect('/admin-panel')->with('msg_success', 'User Updated Successfully');
+            return back()->with(['message'=> 'User Updated Successfully']);
         }
         else {
             return redirect('/home');

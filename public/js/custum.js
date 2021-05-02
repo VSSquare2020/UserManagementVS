@@ -28,7 +28,9 @@ $(document).ready(function () {
 
                     }
                     else{
+                        alert('Invalid clo no');
                         $('.proceed_div').css("display","none");
+
                         $('.user_name').text('');
                         $('.army_no').text('');
                         $('.rank').text('');

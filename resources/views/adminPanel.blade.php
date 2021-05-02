@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container-fluid mt--7">
-        <div class="row">
+        <div style="margin-top:20px;margin-left:20px"  class="row">
             
-            <div  class="col-xl-4">
+            <div  class="col-xl-3">
                 <div style="background-color: #3c8dbc;" class="card shadow">
                     <div style="background-color: #3c8dbc;"   class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -26,9 +26,9 @@
             </div>
         </div>
 
-        <div style="margin-top:20px" class="row">
+        <div style="margin-top:20px;margin-left:20px" class="row">
             
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-xl-3">
                 <div style="background-color: #FF0042;" class="card shadow">
                     <div style="background-color: #FF0042;" class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -50,9 +50,9 @@
             </div>
         </div>
 
-        <div style="margin-top:20px" class="row">
+        <div  style="margin-top:20px; margin-left:20px" class="row">
             
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-xl-3">
                 <div style="background-color: #D7D71F;" class="card shadow">
                     <div style="background-color: #D7D71F;" class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -80,6 +80,7 @@
     display: block;
     height: 600x;
     width: 600px;
+    margin-right:35em;
     margin-top:100px;
     text-indent: -999em;
     text-decoration: none;;" class="container-fluid text-center heading-custom">

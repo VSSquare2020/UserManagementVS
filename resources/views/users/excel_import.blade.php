@@ -10,6 +10,11 @@
     </div>
     <div class="excel-importer">
         <form action="/excel-upload" method="post" enctype="multipart/form-data">
+            @if(session()->has('message'))
+                <p class="alert alert-success">{{session('message')}}</p>
+                @elseif(session()->has('error'))
+                <p class="alert alert-danger">{{session('error')}}</p>
+            @endif
             @csrf
             <div class="form-group">
                 <div class="custom-file excel-upload">    

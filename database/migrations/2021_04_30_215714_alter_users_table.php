@@ -14,11 +14,11 @@ class AlterUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('clo_card_no');
+            $table->bigInteger('clo_card_no')->unique();
             $table->string('army_number')->nullable();
             $table->string('battery')->nullable();
             $table->string('rank')->nullable();
-            //
+            
         });
     }
 

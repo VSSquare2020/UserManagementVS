@@ -22,7 +22,6 @@ class UsersController extends Controller
         if(Auth::user()->admin) {
             $users = DB::table('users')
                         ->where('admin', '=', 0)
-                        ->orderBy('created_at', 'DESC')
                         ->get();
                         // ->paginate(20);
 
@@ -201,12 +200,15 @@ class UsersController extends Controller
             'user_data' => 'required'
         ]);
 
-        $path = $request->file('user_data');
+        $file = $request->file('user_data')->store('import');
 
+        $import = new UsersImport;
+        $import->import($file);
         // $import = new UsersImport();
         // $import->import($path);
-        $data = Excel::import(new UsersImport, $path);
+       // $data = Excel::import(new UsersImport, $path);
 
-        dd($data);
+          return back()->with(['message'=>'Data Imported successfully']);
+       
     }
 }

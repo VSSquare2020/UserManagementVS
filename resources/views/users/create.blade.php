@@ -55,18 +55,23 @@
                             <option value="RHM">RHM </option>
                             <option value="BHM">BHM </option>
                             <option value="HAV">HAV</option>
-                            <option value="LHAV">LHAV</option>
+                            <option value="LHAV">L/HAV</option>
                             <option value="NK">NK</option>
-                            <option value="RHM">RHM </option>
+                            <option value="LNK">L/NK </option>
+                            <option value="GNR">GNR </option>
+                            <option value="SEP">SEP. </option>
+                            <option value="CFN">CFN </option>
+                            <option value="SPR">SPR </option>
+                            <option value="SIGMN">SIGMN </option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="permissionSelect">Battery</label>
                         <select class="form-control" name="battery" id="battery">
-                            <option value="1">P</option>
-                            <option value="2">Q</option>
-                            <option value="3">R</option>
-                            <option value="4">HQ </option>
+                            <option value="P">P</option>
+                            <option value="Q">Q</option>
+                            <option value="R">R</option>
+                            <option value="HQ">HQ </option>
                         </select>
                     </div>
                     <!-- <div class="form-group">

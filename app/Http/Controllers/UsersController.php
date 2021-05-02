@@ -10,6 +10,7 @@ use Hash;
 use DB;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 class UsersController extends Controller
 {
     /**
@@ -213,5 +214,21 @@ class UsersController extends Controller
 
           return back()->with(['message'=>'Data Imported successfully']);
        
+    }
+
+    public function downloadPdf()
+    {
+        if(Auth::user()->admin)
+        {
+            $users = DB::table('users')
+            ->where('admin', '=', 0)
+            ->get();
+            $pdf = PDF::loadView('users.user_pdf',compact('users'));
+            return $pdf->download('users.pdf');
+            //PDF::download('users.index');
+        }
+        else {
+            return redirect('/home');
+        }
     }
 }

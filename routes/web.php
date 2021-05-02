@@ -56,3 +56,9 @@ Route::post('/issue/due_date','IssueController@fetchIssueData')->middleware(['we
 Route::get('/profile', 'ProfileController@show')->middleware(['web','auth']);
 Route::get('/profile/edit', 'ProfileController@edit')->middleware(['web','auth']);
 Route::put('/profile', 'ProfileController@update')->middleware(['web','auth']);
+
+Route::get('/user/export_pdf', 'UsersController@downloadPdf')->middleware(['web','auth']);
+Route::get('/issue/export_pdf', 'IssueController@downloadPdf')->middleware(['web','auth']);
+Route::get('/issue/dueDate_pdf/{id}', 'IssueController@downloadDuePdf')->middleware(['web','auth']);
+
+

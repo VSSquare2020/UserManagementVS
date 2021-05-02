@@ -44,5 +44,11 @@
         </tbody>
     </table>
 </div>
+@if(@$products && count($products)>0)
+    <div>
+        <a href="/issue/dueDate_pdf/{{date('d-m-Y',strtotime(@$product->due_date))}}">Download PDF</a>
+    </div>
+    @endif
+</div>
 
 @endsection

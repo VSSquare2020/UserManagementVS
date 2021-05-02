@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Purchase;
 use App\Product;
+use PDF;
 
 
 class IssueController extends Controller
@@ -205,5 +206,32 @@ class IssueController extends Controller
         }
 
         return view('issue.due_date_data',compact('products'));
+    }
+
+
+    public function downloadPdf()
+    {
+        if(Auth::user()->admin)
+        {
+            $products = Purchase::with(['user','product'])->get();
+
+            $pdf = PDF::loadView('issue.due_date_pdf',compact('products'));
+            return $pdf->download('issue_datails.pdf');
+            //PDF::download('users.index');
+        }
+        else {
+            return redirect('/home');
+        }
+    }
+
+    public function downloadDuePdf($id)
+    {
+        $data = strtotime($id);
+        $month = date('m',$data);
+        $year = date('Y',$data);
+        $products = Purchase::whereMonth('due_date',$month)->whereYear('due_date',$year)->where('status','ISSUED')->with(['product','user'])->get();
+
+        $pdf = PDF::loadView('issue.due_date_pdf',compact('products'));
+        return $pdf->download('due_datails.pdf');
     }
 }

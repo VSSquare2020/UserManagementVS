@@ -9,7 +9,7 @@
         <thead class="thead-dark">
             <tr>
             <th scope="col">Product Name</th>
-            <th scope="col">User Id</th>
+            <th scope="col">BTY</th>
             <th scope="col">User name</th>
             <th scope="col">Product life (month)</th>
             <th scope="col">Quantity</th>
@@ -23,7 +23,7 @@
         @foreach (@$products as $product)
             <tr style="backgroundColor:#fff">
                 <td>{{@$product->product->product_name}}</td>
-                <td>{{@$product->user->id}}</td>
+                <td>{{@$product->user->battery}}</td>
                 <td>{{@$product->user->name}}</td>
                 <td>{{@$product->product->product_life_month}}</td>
                 <td>{{@$product->quantity}}</td>
@@ -45,6 +45,12 @@
         @endforeach
         </tbody>
     </table>
+</div>
+@if(@$products && count($products)>0)
+    <div>
+        <a href="/issue/export_pdf">Download PDF</a>
+    </div>
+    @endif
 </div>
 
 @endsection

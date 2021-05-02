@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <!-- Chart -->
                         <div class="chart">
-                        <h2 style="color: white;" class="mb-0">{{$users_count}}</h2}>
+                        <h2 style="color: white;" class="mb-0">{{$issue_items_count ? $issue_items_count : 0}}</h2}>
                             <!-- <canvas id="chart-orders" class="chart-canvas"></canvas> -->
 
                         </div>
@@ -58,14 +58,14 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <!-- <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6> -->
-                                <h2 style="color: white;" class="mb-0">Total Item Due</h2>
+                                <h2 style="color: white;" class="mb-0">Total Users received</h2>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <!-- Chart -->
                         <div class="chart">
-                        <h2 style="color: white;" class="mb-0">{{$users_count}}</h2}>
+                        <h2 style="color: white;" class="mb-0">{{$users_issued_count ? $users_issued_count : 0}}</h2}>
                             <!-- <canvas id="chart-orders" class="chart-canvas"></canvas> -->
 
                         </div>

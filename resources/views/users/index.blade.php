@@ -41,6 +41,14 @@
             @endforelse
             </tbody>
         </table>
+    </div>
+    @if(@$users && count($users)>0)
+    <div>
+        <a href="/user/export_pdf">Download PDF</a>
+    </div>
+    @endif
+</div>
+       
         
   
 

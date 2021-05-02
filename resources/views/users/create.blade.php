@@ -55,9 +55,14 @@
                             <option value="RHM">RHM </option>
                             <option value="BHM">BHM </option>
                             <option value="HAV">HAV</option>
-                            <option value="LHAV">LHAV</option>
+                            <option value="LHAV">L/HAV</option>
                             <option value="NK">NK</option>
-                            <option value="RHM">RHM </option>
+                            <option value="LNK">L/NK </option>
+                            <option value="GNR">GNR </option>
+                            <option value="SEP">SEP. </option>
+                            <option value="CFN">CFN </option>
+                            <option value="SPR">SPR </option>
+                            <option value="SIGMN">SIGMN </option>
                         </select>
                     </div>
                     <div class="form-group">

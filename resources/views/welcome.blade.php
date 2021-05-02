@@ -19,7 +19,7 @@
         <div class="container-fluid text-center heading-custom">
         <img src="/img/vajra.png" alt="logo" width="500" height="500">
 
-            <!-- <a class="btn btn-primary" href="{{ route('register') }}">User Registration</a> -->
+             <a class="btn btn-primary" href="{{ route('register') }}">User Registration</a> 
             
             
         </div>

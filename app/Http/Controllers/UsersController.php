@@ -22,8 +22,8 @@ class UsersController extends Controller
         if(Auth::user()->admin) {
             $users = DB::table('users')
                         ->where('admin', '=', 0)
-                        ->orderBy('created_at', 'DESC')
-                        ->paginate(20);
+                        
+                        ->get();
 
             return view('users.index', compact('users'));
         }
@@ -59,7 +59,7 @@ class UsersController extends Controller
 
             $validatedData = $request->validate([
                 'name' => 'required',
-                'army_no' => 'required|unique:users',
+                'army_no' => 'required',
                 'clo_no' => 'required',
                 'rank' => 'required',
                 'battery' => 'required',
@@ -67,11 +67,11 @@ class UsersController extends Controller
             
             $user = new User;
             $user->name = $request->name;
-            $user->email = "useremail";
+            $user->email = "useremail" .$request->clo_no;
             $user->army_number = $request->army_no;
             $user->clo_card_no = $request->clo_no;
             $user->rank = $request->rank; 
-            $user->trade_id = $request->battery;
+            $user->battery = $request->battery;
             $user->password = Hash::make('password'.$request->army_no);
             if($request->hasFile('image')) {
                 $user->image = $request->image->store('profile_pics', 'public');

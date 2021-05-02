@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
             <h3 class="text-center">Add New User</h3>
+            <div class="create_btn">
+            <a href="/excel-upload">Upload Excel</a> 
+        </div>
         <div class="row">
             <div class="offset-md-3 col-md-6">
                 <form method="POST" action="/users/store" enctype="multipart/form-data">

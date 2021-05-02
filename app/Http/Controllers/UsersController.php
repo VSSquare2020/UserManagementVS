@@ -8,7 +8,8 @@ use App\User;
 use App\Role;
 use Hash;
 use DB;
-
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 class UsersController extends Controller
 {
     /**
@@ -184,5 +185,27 @@ class UsersController extends Controller
         else {
             return redirect('/home');
         }
+    }
+
+    public function excelImport()
+    {
+        return view('users.excel_import');
+    }
+
+    public function SaveExcel(Request $request)
+    {
+      //  dd($request->file());
+
+        $validatedData = $request->validate([
+            'user_data' => 'required'
+        ]);
+
+        $path = $request->file('user_data');
+
+        // $import = new UsersImport();
+        // $import->import($path);
+        $data = Excel::import(new UsersImport, $path);
+
+        dd($data);
     }
 }

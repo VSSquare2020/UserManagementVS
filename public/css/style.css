@@ -48,3 +48,12 @@
 .user-field div{
     display: -webkit-box;
 }
+.excel-importer{
+    margin: auto;
+    max-width: 40%;
+    margin-top: 50px;
+}
+.row button{
+    margin-left: 50px;
+    cursor: pointer;
+}

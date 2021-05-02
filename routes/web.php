@@ -27,6 +27,9 @@ Route::get('/users/edit/{id}', 'UsersController@edit')->middleware(['web','auth'
 Route::get('/users/{id}', 'UsersController@show')->middleware(['web','auth']);
 Route::put('/users/{id}', 'UsersController@update')->middleware(['web','auth']);
 Route::delete('/users/{id}', 'UsersController@destroy')->middleware(['web','auth']);
+Route::get('/excel-upload', 'UsersController@excelImport')->middleware(['web','auth']);
+Route::post('/excel-upload', 'UsersController@SaveExcel')->middleware(['web','auth']);
+
 
 Route::get('/roles', 'RolesController@index')->middleware(['web','auth']);
 Route::get('/roles/{id}', 'RolesController@show')->middleware(['web','auth']);

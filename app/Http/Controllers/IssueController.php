@@ -103,9 +103,11 @@ class IssueController extends Controller
             {
                // dd($request);
                 $productInfo = Product::where('id',$val)->first();
-                
-                if ($productInfo->quantity >= $request->quantity[$key]) {
-                    $saveToDb = Purchase::create([
+                $purchaseData = Purchase::where('user_id',$userData->id)->where('product_id',$val)->where('status','ISSUED')->get();
+
+                if ($purchaseData && count($purchaseData)==0) {
+                    if ($productInfo->quantity >= $request->quantity[$key]) {
+                        $saveToDb = Purchase::create([
                     'user_id' => $request->user_id,
                     'battery' => $userData->battery,
                     'product_id' => $val,
@@ -113,35 +115,41 @@ class IssueController extends Controller
                     'status' => 'ISSUED',
                     'due_date' => Carbon::now()->addMonths($productInfo->product_life_month),
                 ]);
-                    if ($saveToDb) {
-                        $quant = $productInfo->quantity - (int)$request->quantity[$key];
-                        // dd($quant,$request->quantity[$key]);
-                        $productUpdate = Product::where('id', $val)->update([
+                        if ($saveToDb) {
+                            $quant = $productInfo->quantity - (int)$request->quantity[$key];
+                            // dd($quant,$request->quantity[$key]);
+                            $productUpdate = Product::where('id', $val)->update([
                         'quantity' => $quant
                     ]);
 
-                        $count--;
+                            $count--;
+                        }
+                    } else {
+                        $msg = 'Only '.$productInfo->quantity.' items of '.$productInfo->product_name.' is available';
+                        return back()->with(['error'=>$msg]);
                     }
                 }
-                else
-                {
-                    $msg = 'Only '.$productInfo->quantity.' items of '.$productInfo->product_name.' is available';
+                else {
+                    $msg = $productInfo->product_name.' is already issued to him';
                     return back()->with(['error'=>$msg]);
                 }
 
 
 
             }
+            return back()->with(['success'=>'Issued Successfully']);
 
-            if($count == 0)
-            {
-                return back()->with(['message'=>'Issued Successfully']);
-            }
-            else
-            {
-                return back()->with(['error'=>'Some items not available']);
 
-            }
+            // if($count <= 0)
+            // {
+
+            //     return back()->with(['message'=>'Issued Successfully']);
+            // }
+            // else
+            // {
+            //     return back()->with(['error'=>'Some items not available']);
+
+            // }
         }
     }
 
@@ -157,19 +165,22 @@ class IssueController extends Controller
         //dd($request,$id);
         if($id)
         {
-            $issueData = Purchase::where('product_id',$id)->where('user_id',$request->uid)->first();
-            $updateQty = Product::where('id',$id)->first();
+            $issueData = Purchase::where('id',$id)->where('user_id',$request->uid)->first();
+            $updateQty = Product::where('id',$issueData->product_id)->first();
+           // dd($issueData,$updateQty,$id,$request->uid);
             $qty = $updateQty->quantity + $issueData->quantity;
 
             $updateQty->update([
                 'quantity' => $qty
             ]);
 
-            Purchase::where('product_id',$id)->update([
+             Purchase::where('id',$id)->update([
                 'status'=>'RETURNED',
                 'due_date'=>null,
                 'return_on' => Carbon::now()
             ]);
+
+                return back();
         }
     }
 

@@ -6,6 +6,9 @@
         <div class="row">
             <div class="offset-md-3 col-md-6">
                 <form method="POST" action="{{url('users/' . $user->id)}}" enctype="multipart/form-data">
+                    @if(session()->has('message'))
+                    <p class="alert alert-success">{{session('message')}}</p>
+                    @endif
                     @csrf
                     <div class="form-group">
                         <label for="full_name">Full Name</label>

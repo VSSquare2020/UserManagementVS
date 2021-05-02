@@ -19,21 +19,21 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($products as $product)
+        @foreach (@$products as $product)
             <tr style="backgroundColor:#fff">
-                <td>{{$product->id}}</td>
-                <td>{{$product->product->product_name}}</td>
-                <td>{{$product->product->product_life_month}}</td>
-                <td>{{$product->quantity}}</td>
-                <td>{{$product->updated_at}}</td>
-                <td style="color:red;">{{$product->due_date ? date('d-m-Y',strtotime($product->due_date)) : '-'}}</td>  
-                <td class="{{$product->status}}">{{$product->status}}</td>  
+                <td>{{@$product->id}}</td>
+                <td>{{@$product->product->product_name}}</td>
+                <td>{{@$product->product->product_life_month}}</td>
+                <td>{{@$product->quantity}}</td>
+                <td>{{@$product->updated_at}}</td>
+                <td style="color:red;">{{@$product->due_date ? date('d-m-Y',strtotime(@$product->due_date)) : '-'}}</td>  
+                <td class="{{$product->status}}">{{@$product->status}}</td>  
                 <td class="justify-content-center"> 
-                    <a href="products/{{$product->id}}" class="btn btn-info btn-sm text-light">View</a>
+                    <a href="products/{{@$product->id}}" class="btn btn-info btn-sm text-light">View</a>
                     <form action="{{url('issue/return/'.$product->id)}}" method="POST" style="display:inline-block">
                         @csrf
                         @if($product->status == 'ISSUED')
-                        <input type="hidden" name="uid" value="{{$product->user->id}}">
+                        <input type="hidden" name="uid" value="{{@$product->user->id}}">
                         <input type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm text-light" value="Return">
                         @endif
 

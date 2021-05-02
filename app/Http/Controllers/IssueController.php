@@ -107,7 +107,7 @@ class IssueController extends Controller
                 if ($productInfo->quantity >= $request->quantity[$key]) {
                     $saveToDb = Purchase::create([
                     'user_id' => $request->user_id,
-                    'battery' => $user->battery,
+                    'battery' => $userData->battery,
                     'product_id' => $val,
                     'quantity' => $request->quantity[$key],
                     'status' => 'ISSUED',

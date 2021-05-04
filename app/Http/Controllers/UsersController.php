@@ -60,7 +60,7 @@ class UsersController extends Controller
 
             $validatedData = $request->validate([
                 'name' => 'required',
-                'army_no' => 'required|unique:users',
+                'army_no' => 'required',
                 'clo_no' => 'required',
                 'rank' => 'required',
                 'battery' => 'required',
@@ -181,8 +181,6 @@ class UsersController extends Controller
     {
         if(Auth::user()->admin) {
             $user = User::find($id);
-            $role = Role::where('user_id', '=', $id)->firstOrFail();
-            $role->delete();
             $user->delete();
             return redirect('/admin-panel')->with('msg_success', 'User Deleted Successfully');
         }
